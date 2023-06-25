@@ -13,9 +13,10 @@ const Card = ({data}) => {
   return (
     <div className="card">
         {/* En cada card deberan mostrar en name - username y el id */}
-        <p>{data.id}</p>
-        <p>{data.name}</p>
-        <p>{data.username}</p>
+        
+        <h4>{data.name}</h4>
+        <img style={{width: "70px", height:"70px"}} src="./images/doctor.jpg" alt={"Dr. " + data.name}/>
+        <h5>{data.username}</h5>
         {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
 
         {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}

@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useReducer, useState } from "react";
 import axios from 'axios';
 
+
 export const initialState = {theme: "", data: []}
 
 export const ContextGlobal = createContext(undefined);
@@ -15,12 +16,9 @@ export const ContextProvider = ({ children }) => {
   const [themeState, themeDispatch] = useReducer(themeReducer, initialState.theme)
   const [dentistas, setDentistas] = useState({})
   const [dentista, setDentista] = useState({})
+
   const urlDentistas = "https://jsonplaceholder.typicode.com/users"
-  const urlDentista = "https://jsonplaceholder.typicode.com/users/:id"
-
-  
-
-
+    
   useEffect(() => {
     axios.get(urlDentistas)
     .then(response => {
@@ -28,15 +26,6 @@ export const ContextProvider = ({ children }) => {
       setDentistas(response.data)
     })
   }, [])
-  useEffect(() => {
-    axios.get(urlDentista)
-    .then(response => {
-      console.log(response.data)
-      setDentista(response.data)
-    })
-  }, [])
-
-  
 
   
   return (
