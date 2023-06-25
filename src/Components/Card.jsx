@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useContextGlobal } from "./utils/global.context";
 
 
 
 const Card = ({data}) => {
 
-  
+  const {favState, favDispatch, dentista} = useContextGlobal()
 
-  const addFav = ()=>{
+  const addFav = () =>{
     // Aqui iria la logica para agregar la Card en el localStorage
+    favDispatch({type: 'LIKE', payload: dentista})    
+    localStorage.setItem('favs', JSON.stringify(favState))
+    
   }
+
+  useEffect(() => {
+    
+  }, [favState])
 
   return (
     <div className="card">

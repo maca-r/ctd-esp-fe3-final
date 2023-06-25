@@ -43,7 +43,7 @@ const Home = () => {
         {dentistas.length 
             ? dentistas.map(dentista => (
 
-            <Link to={`/dentist/` + dentista.id} key={dentista.id}>
+            <Link to={`/dentista/` + dentista.id} key={dentista.id}>
               
             <Card data={dentista}/>
             
