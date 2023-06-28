@@ -27,8 +27,37 @@ h1{
 nav{
   display: flex;
   width: 80vw;
-  justify-content: flex-start;
+  justify-content: space-between;
   padding: 1rem;
+  margin: auto;
+}
+
+nav > div.rutas{
+  display: flex;
+  
+  justify-content: space-between;
+}
+
+
+
+nav > div.rutas button {
+  width: auto;
+  
+  border-radius: 50px;
+  border: transparent;
+  
+}
+
+nav > div.rutas button:hover{
+  box-shadow: 2px 1px 11px 1px rgba(0,0,0,0.75);
+-webkit-box-shadow: 2px 1px 11px 1px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 1px 11px 1px rgba(0,0,0,0.75);
+}
+
+nav > div.rutas button.dark:hover{
+  box-shadow: 2px 1px 11px 1px rgba(162, 162, 162, 0.75);
+-webkit-box-shadow: 2px 1px 11px 1px rgba(162,162,162,0.75);
+-moz-box-shadow: 2px 1px 11px 1px rgba(162,162,162,0.75);
 }
 
 
@@ -135,6 +164,3 @@ tr:nth-child(even) {
   color: white;
 }
 
-nav > button {
-  border-radius: 5px;
-}

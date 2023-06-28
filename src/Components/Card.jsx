@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useContextGlobal } from "./utils/global.context";
 import { Link } from "react-router-dom";
-
+import Button from '@mui/material/Button'
 
 
 const Card = ({data}) => {
