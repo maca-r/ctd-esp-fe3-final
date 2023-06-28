@@ -1,38 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from '../Components/Card'
 
 import { Link } from 'react-router-dom'
 import { useContextGlobal } from '../Components/utils/global.context'
+import axios from 'axios'
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
-  const {dentistas} = useContextGlobal()
-  // const [dentistas, setDentistas] = useState([])
-
-  // const [dentista, setDentista] = useState({})
-
-  // const urlDentistas = "https://jsonplaceholder.typicode.com/users"
-
-  // const urlDentista = "https://jsonplaceholder.typicode.com/users/:id"
-  
-  // useEffect(() => {
-  //   axios.get(urlDentistas)
-  //   .then(response => {
-  //     console.log(response.data)
-  //     setDentistas(response.data)
-      
-  //   })
-  // }, [])
-
-  // useEffect(() => {
-  //   axios.get(urlDentista)
-  //   .then(response => {
-  //     console.log(response.data)
-  //     setDentista(response.data)
-
-  //   })
-  // }, [])
+  // const {dentistas} = useContextGlobal()
+  const {dentistasState} = useContextGlobal()
   
   return (
     <main className="" >
@@ -40,14 +17,13 @@ const Home = () => {
       <div className='card-grid'>
         {/* Aqui deberias renderizar las cards */}
         
-        {dentistas.length 
-            ? dentistas.map(dentista => (
+        {dentistasState.dentistas.length 
 
-            <Link to={`/dentista/` + dentista.id} key={dentista.id}>
-              
-            <Card data={dentista}/>
+            ? dentistasState.dentistas.map(dentista => (
+
+
+            <Card data={dentista} key={dentista.id}/>
             
-            </Link>
             ))
             : null
         }

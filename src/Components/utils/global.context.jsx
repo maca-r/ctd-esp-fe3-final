@@ -5,33 +5,55 @@ import { useParams } from "react-router-dom";
 
 export const initialState = {
   theme: "", 
-  data: JSON.parse(localStorage.getItem('favs')) || []}
+  // data: JSON.parse(localStorage.getItem('favs')) || []
+  favs: JSON.parse(localStorage.getItem('favs')) || [],
+  dentistas: [],
+  dentista: {}
+}
 
 export const ContextGlobal = createContext(undefined);
 
-const dataReducer = (favState, action) => {
+const dataReducer = (state, action) => {
   switch(action.type){
     case "LIKE":
-      return [...favState, action.payload]
-    case "DISLIKE":
-      return action.payload
+    return {favs: [action.payload,...state.favs], dentistas: state.dentistas, theme: state.theme, dentista: state.dentista}
+    // case "DISLIKE":
+    //   return favState.filter(fav => fav.id !== action.payload.id);
+    case "CHANGE_THEME":
+      return {theme: action.payload, dentistas: state.dentistas, favs: state.favs, dentista: state.dentista}
     default:
       throw new Error()
   }
 }
 
-const themeReducer = (themeState, action) => {} 
+
+
+const dentistasReducer = (state, action) => {
+  switch(action.type){
+    case "GET_LIST":
+      return {dentistas: action.payload, favs: state.favs, theme: state.theme, dentista: state.dentista}
+    case "GET_A_DENTIST":
+      return {dentista: action.payload, favs: state.favs, theme: state.theme, dentistas: state.dentistas}
+    default:
+      throw new Error()
+  }
+}
+
+// const themeReducer = (themeState, action) => {} 
 
 export const ContextProvider = ({ children }) => {
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
 
-  const [favState, favDispatch] = useReducer(dataReducer, initialState.data)
+  const [favState, favDispatch] = useReducer(dataReducer, initialState)
 
-  const [themeState, themeDispatch] = useReducer(themeReducer, initialState.theme)
+  useEffect(() => {
+    localStorage.setItem('favs', JSON.stringify(favState.favs))
+  },[favState.favs])
 
-  const [dentistas, setDentistas] = useState({})
+  const [themeState, themeDispatch] = useReducer(dataReducer, initialState)
 
-  const [dentista, setDentista] = useState({})
+
+  const [dentistasState, dentistasDispatch] = useReducer(dentistasReducer, initialState)
 
   const urlDentistas = "https://jsonplaceholder.typicode.com/users"
     
@@ -39,28 +61,19 @@ export const ContextProvider = ({ children }) => {
     axios.get(urlDentistas)
     .then(response => {
       console.log(response.data)
-      setDentistas(response.data)
+      dentistasDispatch(({type: 'GET_LIST', payload: response.data }))
+      
     })
-  }, [])
+  }, [urlDentistas])
 
-  // const params = useParams()
-  // console.log(params);
   
-  // useEffect(() => {
-  //   const urlDentista = `https://jsonplaceholder.typicode.com/users/${params.id}`  
-  //   axios.get(urlDentista)
-  //   .then(response => {
-  //     console.log(response.data)
-  //     setDentista(response.data)
-  //   })
-  // }, [])
 
   
   return (
     <ContextGlobal.Provider value={{
-      dentistas, setDentistas,
-      dentista, setDentista,
       favState, favDispatch,
+      dentistasState, dentistasDispatch,
+      themeState, themeDispatch
     }}>
       {children}
     </ContextGlobal.Provider>
