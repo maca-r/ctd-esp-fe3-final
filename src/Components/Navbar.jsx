@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { routes } from '../Routes/utils/routes'
 import { useContextGlobal } from './utils/global.context'
@@ -30,7 +30,7 @@ const Navbar = () => {
       <Link to={routes.favs}>Favoritos</Link>
       <Link to={routes.contact}>Contacto</Link>
       {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
-      <button onClick={changeTheme} className={themeState.theme}>Change theme</button>
+      <button onClick={changeTheme} className={themeState.theme}> {themeState.theme === "" ? "☼" : "☾"}</button>
     </nav>
   )
 }
