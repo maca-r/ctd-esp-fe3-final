@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useReducer, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { useContextGlobal } from '../Components/utils/global.context';
 
@@ -33,16 +33,20 @@ const Detail = () => {
       <h1>Detail Dentist {dentistasState.dentista.id} </h1>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
-      <div className='card-detail'>
+      <table>
+        <td>Nombre</td>
+        <td>E-mail</td>
+        <td>Tel</td>
+        <td>Web</td>
+        <tr>
+          <th>{dentistasState.dentista.name}</th>
+          <th>{dentistasState.dentista.email}</th>
+          <th>{dentistasState.dentista.phone}</th>
+          <th>{dentistasState.dentista.website}</th>
+        </tr>
+      </table>
 
-        <h4>Nombre: {dentistasState.dentista.name}</h4>
-        <h5>E-mail: {dentistasState.dentista.email}</h5>
-        <h5>Tel: {dentistasState.dentista.phone}</h5>
-        <h4>Web: {dentistasState.dentista.website}</h4>
-
-      </div>
-
-      <button onClick={() => navigate(-1)}>Back</button>
+      <button className="back-button" onClick={() => navigate(-1)}>Back</button>
         
     </>
   )

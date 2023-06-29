@@ -29,9 +29,9 @@ const Navbar = () => {
 
   
   return (
-    <nav>
+    <nav className={themeState.theme}>
       {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
-      <div>
+      <div className='icon'>
       <img src="./DH.ico" alt="" />
       </div>
 

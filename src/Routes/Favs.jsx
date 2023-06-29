@@ -11,8 +11,11 @@ const Favs = () => {
   
   return (
     <>
-    {console.log(favState.favs)}
+    
       <h1>Dentists Favs</h1>
+
+      {!favState.favs.length && <h3 className="aviso">Aun no hay favoritos</h3>}
+      
       <div className="card-grid">
         {/* este componente debe consumir los destacados del localStorage */}
         {/* Deberan renderizar una Card por cada uno de ellos */}

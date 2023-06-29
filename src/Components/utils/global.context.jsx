@@ -1,6 +1,5 @@
-import { createContext, useContext, useEffect, useReducer, useState } from "react";
+import { createContext, useContext, useEffect, useReducer} from "react";
 import axios from 'axios';
-import { useParams } from "react-router-dom";
 
 
 export const initialState = {
@@ -15,12 +14,14 @@ export const ContextGlobal = createContext(undefined);
 
 const dataReducer = (state, action) => {
   switch(action.type){
+    // case "LIKE":
+    // return {favs: [action.payload,...state.favs], dentistas: state.dentistas, theme: state.theme, dentista: state.dentista}
     case "LIKE":
-    return {favs: [action.payload,...state.favs], dentistas: state.dentistas, theme: state.theme, dentista: state.dentista}
-    // case "DISLIKE":
-    //   return favState.filter(fav => fav.id !== action.payload.id);
+    return {...state, favs: [action.payload,...state.favs]}
+    case "DISLIKE":
+      return {...state, favs: state.favs.filter(fav => fav.id !== action.payload.id)};
     case "CHANGE_THEME":
-      return {theme: action.payload, dentistas: state.dentistas, favs: state.favs, dentista: state.dentista}
+      return {...state, theme: action.payload}
     default:
       throw new Error()
   }
@@ -30,10 +31,12 @@ const dataReducer = (state, action) => {
 
 const dentistasReducer = (state, action) => {
   switch(action.type){
+    // case "GET_LIST":
+    //   return {dentistas: action.payload, favs: state.favs, theme: state.theme, dentista: state.dentista}
     case "GET_LIST":
-      return {dentistas: action.payload, favs: state.favs, theme: state.theme, dentista: state.dentista}
+      return {...state, dentistas: action.payload}
     case "GET_A_DENTIST":
-      return {dentista: action.payload, favs: state.favs, theme: state.theme, dentistas: state.dentistas}
+      return {...state, dentista: action.payload}
     default:
       throw new Error()
   }

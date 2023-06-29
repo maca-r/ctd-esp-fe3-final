@@ -5,7 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -13,38 +15,67 @@ code {
 }
 
 .favButton{
-  background-color: rgba(136, 136, 136, 0.116);
+  background-color: rgba(177, 177, 177, 0.455);
   padding: 10px;
   border: none;
   width: 100%;
   cursor: pointer;
 }
 
+.favButton:hover{
+  background-color:cadetblue;
+  color: white;
+  border-color: rgb(30, 50, 50);
+}
+
+div .favButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
 h1{
   text-align: center;
 }
 
+h3.aviso{
+  text-align: center;
+  color: crimson;
+}
+
 nav{
   display: flex;
-  width: 80vw;
+  width: auto;
   justify-content: space-between;
-  padding: 1rem;
-  margin: auto;
+  padding: 1rem 7rem 1rem 7rem;
+  margin: 0;
+  align-items: center;
+}
+
+
+nav.dark{
+  background-color: #121212b0;
+  
+}
+
+nav.dark > div.rutas a {
+  color: white;
 }
 
 nav > div.rutas{
   display: flex;
-  
-  justify-content: space-between;
+  width: fit-content;
+  justify-content: space-around;
+
 }
 
 
 
 nav > div.rutas button {
-  width: auto;
-  
+  height:min-content;
+  margin-left: 5px;
   border-radius: 50px;
   border: transparent;
+  cursor: pointer;
   
 }
 
@@ -137,6 +168,11 @@ form{
   border: 0.5px solid rgb(136, 136, 136);
 }
 
+.card img{
+  width: 70%;
+  height: 70%
+}
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -154,6 +190,23 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+.back-button{
+  background-color: rgba(177, 177, 177, 0.455);
+  padding: 10px;
+  border: none;
+  border-radius: 10%;
+  margin-left: 50%;
+  margin-top: 5%;
+  align-items: center;
+  cursor: pointer;
+}
+
+.back-button:hover{
+  background-color:cadetblue;
+  color: white;
+  border-color: rgb(30, 50, 50);
 }
 
 .dark{

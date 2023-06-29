@@ -18,11 +18,12 @@ const Contact = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     
-    
+
+
     if((datos.nombre.length > 5) 
       && (emailRegex.test(datos.email))
-      && (datos.nombre.trim())
-      && (datos.email.trim())
+      && !(datos.nombre.startsWith(" "))
+      && !(datos.nombre.endsWith(" "))
       )
     {
       console.log(datos)
@@ -32,6 +33,7 @@ const Contact = () => {
       setShow(false)
       setError(true)
     }
+
     
   }
 
