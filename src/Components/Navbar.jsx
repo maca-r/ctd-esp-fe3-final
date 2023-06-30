@@ -29,7 +29,7 @@ const Navbar = () => {
     <nav className={dataState.theme}>
       {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
       <div className='icon'>
-        <img src="./DH.ico" alt="" />
+        <img src="./DH.ico" alt="DH-icono" />
       </div>
 
       <div className='rutas'>
