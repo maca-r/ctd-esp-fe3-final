@@ -15,14 +15,14 @@ const Card = ({data}) => {
     
     if (!dataState.favs.includes(data) ){
       dataDispatch({type: 'LIKE', payload: data})    
-      setFavorite("LIKE")
+      setFavorite("like")
       alert("Add succesfully")
       
     } 
     else {
 
       dataDispatch({type: 'DISLIKE', payload: data})
-      setFavorite("DISLIKE")
+      setFavorite("dislike")
     }
     
   }
@@ -42,7 +42,7 @@ const Card = ({data}) => {
 
         {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
         
-          <button onClick={addFav} className={"favButton " + dataState.theme}>{favorite === 'LIKE' ? <StarIcon style={{color:"gold"}}/> : <StarIcon/> }</button>
+          <button onClick={addFav} className={"favButton " + dataState.theme}>{favorite === 'like' ? <StarIcon style={{color:"gold"}}/> :<StarIcon style={{color:"gray"}}/>  }</button>
           {/* <button onClick={deleteFav} className={"deleteButton " + themeState.theme}>{<ThumbDownIcon/>}</button> */}
         
         
