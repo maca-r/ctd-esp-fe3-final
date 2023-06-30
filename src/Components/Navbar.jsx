@@ -5,42 +5,39 @@ import { useContextGlobal } from './utils/global.context'
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 
-
-
-
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Navbar = () => {
 
-  const {themeState, themeDispatch} = useContextGlobal()
+  const {dataState, dataDispatch} = useContextGlobal()
   
 
   const changeTheme = () => {
 
-    if(themeState.theme === ""){
-      themeDispatch({type: "CHANGE_THEME", payload: "dark"})
+    if(dataState.theme === ""){
+      dataDispatch({type: "CHANGE_THEME", payload: "dark"})
     }
 
-    if(themeState.theme === "dark"){
-      themeDispatch({type: "CHANGE_THEME", payload: ""})
+    if(dataState.theme === "dark"){
+      dataDispatch({type: "CHANGE_THEME", payload: ""})
     }
     
   }
 
   
   return (
-    <nav className={themeState.theme}>
+    <nav className={dataState.theme}>
       {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
       <div className='icon'>
-      <img src="./DH.ico" alt="" />
+        <img src="./DH.ico" alt="" />
       </div>
 
       <div className='rutas'>
-      <Link to={routes.home}> Home</Link>
-      <Link to={routes.favs}>Favoritos</Link>
-      <Link to={routes.contact}>Contacto</Link>
+        <Link to={routes.home}> Home</Link>
+        <Link to={routes.favs}>Favoritos</Link>
+        <Link to={routes.contact}>Contacto</Link>
       {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
-      <button onClick={changeTheme} className={themeState.theme} > {themeState.theme === "" ? <DarkModeIcon/> : <LightModeIcon/>}</button>
+        <button onClick={changeTheme} className={dataState.theme} > {dataState.theme === "" ? <DarkModeIcon/> : <LightModeIcon/>}</button>
       </div>
       
     </nav>

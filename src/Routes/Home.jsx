@@ -6,8 +6,8 @@ import { useContextGlobal } from '../Components/utils/global.context'
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
-  // const {dentistas} = useContextGlobal()
-  const {dentistasState} = useContextGlobal()
+
+  const {dataState} = useContextGlobal()
   
   return (
     <main className="" >
@@ -15,10 +15,9 @@ const Home = () => {
       <div className='card-grid'>
         {/* Aqui deberias renderizar las cards */}
         
-        {dentistasState.dentistas.length 
+        {dataState.dentistas.length 
 
-            ? dentistasState.dentistas.map(dentista => (
-
+            ? dataState.dentistas.map(dentista => (
 
             <Card data={dentista} key={dentista.id}/>
             

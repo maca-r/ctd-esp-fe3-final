@@ -9,19 +9,15 @@ import { useContextGlobal } from '../Components/utils/global.context';
 const Detail = () => {
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
 
-  // const [dentista, setDentista] = useState({})
-  // const [dentistaState, dentistaDispatch] = useReducer(dentistaReducer,dentistaInitialState)
-  const {dentistasState, dentistasDispatch} = useContextGlobal()
+  const {dataState,dataDispatch} = useContextGlobal()
   const params = useParams()
   const urlDentista = `https://jsonplaceholder.typicode.com/users/${params.id}`
   
-  useEffect(() => {
-    
-    
+  useEffect(() => {    
     axios.get(urlDentista)
     .then(response => {
       console.log(response.data)
-      dentistasDispatch({type: "GET_A_DENTIST", payload: response.data})
+      dataDispatch({type: "GET_A_DENTIST", payload: response.data})
     })
   }, [urlDentista])
 
@@ -30,7 +26,7 @@ const Detail = () => {
 
   return (
     <>
-      <h1>Detail Dentist {dentistasState.dentista.id} </h1>
+      <h1>Detail Dentist {dataState.dentista.id} </h1>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
       <table>
@@ -39,10 +35,10 @@ const Detail = () => {
         <td>Tel</td>
         <td>Web</td>
         <tr>
-          <th>{dentistasState.dentista.name}</th>
-          <th>{dentistasState.dentista.email}</th>
-          <th>{dentistasState.dentista.phone}</th>
-          <th>{dentistasState.dentista.website}</th>
+          <th>{dataState.dentista.name}</th>
+          <th>{dataState.dentista.email}</th>
+          <th>{dataState.dentista.phone}</th>
+          <th>{dataState.dentista.website}</th>
         </tr>
       </table>
 

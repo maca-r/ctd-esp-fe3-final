@@ -17,8 +17,6 @@ const Contact = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    
-
 
     if((datos.nombre.length > 5) 
       && (emailRegex.test(datos.email))
@@ -33,12 +31,12 @@ const Contact = () => {
       setShow(false)
       setError(true)
     }
-
     
   }
 
   return (
     <div>
+
       <h2>Want to know more?</h2>
       <p>Send us your questions and we will contact you</p>
       
@@ -46,9 +44,8 @@ const Contact = () => {
       
       {show && <p>Gracias {datos.nombre}, te contactaremos cuanto antes via email</p>}
       {error && <p>Por favor verifique su información nuevamente</p>}
+      
     </div>
-
-    
   )
 }
 

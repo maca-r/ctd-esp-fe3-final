@@ -12,9 +12,9 @@ import NotFound from "./Routes/NotFound";
 
 function App() {
 
-  const {themeState} = useContextGlobal()
+  const {dataState} = useContextGlobal()
   return (
-      <div className={"App " + themeState.theme}>
+      <div className={"App " + dataState.theme}>
         
         <Routes>
           <Route path="/" element={<Layout/>}>

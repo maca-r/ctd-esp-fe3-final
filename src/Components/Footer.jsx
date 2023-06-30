@@ -3,9 +3,9 @@ import { useContextGlobal } from './utils/global.context'
 
 const Footer = () => {
 
-  const {themeState} = useContextGlobal()
+  const {dataState} = useContextGlobal()
   return (
-    <footer className={themeState.theme}>
+    <footer className={dataState.theme}>
           <div className='icon'>
             <p>Powered by</p>
             <img src="./images/DH.png" alt='DH-logo' />  
@@ -19,9 +19,6 @@ const Footer = () => {
             <img src="./images/ico-tiktok.png"  alt="tiktok" />
           </div>
           
-          
-          
-        
     </footer>
   )
 }

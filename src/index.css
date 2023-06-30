@@ -9,12 +9,10 @@ body {
   
 }
 
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 
 .favButton{
   background-color: rgba(177, 177, 177, 0.223);
@@ -26,20 +24,16 @@ code {
   color: rgb(126, 126, 126);
 }
 
-
 .favButton:hover{
   background-color:cadetblue;
   color: white;
   border-color: rgb(30, 50, 50);
 }
 
-
-
 input{
   margin-top: 3%;  
   height: 10%;
 }
-
 
 h1{
   text-align: center;
@@ -64,7 +58,6 @@ nav{
   align-items: center;
 }
 
-
 nav.dark{
   background-color: #121212b0;
   
@@ -80,8 +73,6 @@ nav > div.rutas{
   justify-content: space-around;
 
 }
-
-
 
 nav > div.rutas button {
   height:min-content;
@@ -104,14 +95,13 @@ nav > div.rutas button.dark:hover{
 -moz-box-shadow: 2px 1px 11px 1px rgba(162,162,162,0.75);
 }
 
-
-
 a{
   color: #000;
   text-decoration: none;
   margin: 5px;
   cursor: pointer;
 }
+
 a:hover{
   color: rgb(136, 136, 136);
 } 
@@ -141,7 +131,6 @@ footer > div.icon > img{
   width: 200px;
   margin: 0;
 }
-
 
 footer > div.social-icon {
   margin-right: 1%;
@@ -259,7 +248,6 @@ form{
   color: white;
   border-color: rgb(30, 50, 50);
 }
-
 
 .dark{
   background-color: #12121280;
