@@ -1,11 +1,27 @@
 import React from 'react'
+import { useContextGlobal } from './utils/global.context'
 
 const Footer = () => {
+
+  const {themeState} = useContextGlobal()
   return (
-    <footer>
-        <p>Powered by</p>
+    <footer className={themeState.theme}>
+          <div className='icon'>
+            <p>Powered by</p>
+            <img src="./images/DH.png" alt='DH-logo' />  
+          </div>
+          
         
-        <img src="./images/DH.png" alt='DH-logo' />
+          <div className='social-icon'>
+            <img src="./images/ico-facebook.png" alt="facebook" />
+            <img src="./images/ico-instagram.png" alt="instagram" />
+            <img src="./images/ico-whatsapp.png" alt="whatsapp" />
+            <img src="./images/ico-tiktok.png"  alt="tiktok" />
+          </div>
+          
+          
+          
+        
     </footer>
   )
 }

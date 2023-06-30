@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   
+  
 }
 
 
@@ -14,13 +15,17 @@ code {
     monospace;
 }
 
+
 .favButton{
-  background-color: rgba(177, 177, 177, 0.455);
-  padding: 10px;
+  background-color: rgba(177, 177, 177, 0.223);
+  padding: 0;
   border: none;
-  width: 100%;
+  margin: 2% 0% 5% 0%;
   cursor: pointer;
+  width: 100%;
+  color: rgb(126, 126, 126);
 }
+
 
 .favButton:hover{
   background-color:cadetblue;
@@ -28,18 +33,26 @@ code {
   border-color: rgb(30, 50, 50);
 }
 
-div .favButtons {
-  display: flex;
-  justify-content: space-between;
+
+
+input{
+  margin-top: 3%;  
+  height: 10%;
 }
+
 
 h1{
   text-align: center;
+  
 }
 
 h3.aviso{
   text-align: center;
   color: crimson;
+}
+
+h4, h5{
+  margin: 5% 0% 5% 0%;
 }
 
 nav{
@@ -105,23 +118,38 @@ a:hover{
 
 footer {
   display: flex;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-  position: relative;
-  bottom: 0;
-  width: 90%;
-  height: 40px;
-  margin-top: 2rem;
+  background-color: rgba(87, 87, 87, 0.429);
+  justify-content: space-between;
+  padding: 1rem 7rem 1rem 7rem;
+  margin: 0;
+  margin-top: 3%;
+  align-items: center;
 }
 
-footer > img{
+footer > div.icon {
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+
+footer > div.icon > p{
+  width: max-content;
+  
+}
+
+footer > div.icon > img{
   width: 200px;
   margin: 0;
 }
-footer > p{
-  margin: 0;
-  padding-top: 0.7rem;
+
+
+footer > div.social-icon {
+  margin-right: 1%;
+}
+
+footer > div.social-icon > img {
+  width: 1.5rem;
+  margin-right: .5rem;
 }
 
 form{
@@ -209,11 +237,37 @@ tr:nth-child(even) {
   border-color: rgb(30, 50, 50);
 }
 
+form{
+  height: auto;
+  
+}
+
+.form-button{
+  background-color: rgba(177, 177, 177, 0.455);
+  
+  border: none;
+  border-radius: 10%;
+  width: fit-content;
+  padding: 2%;
+  margin: 5% 45%;
+  align-items: center;
+  cursor: pointer;
+}
+
+.form-button:hover{
+  background-color:cadetblue;
+  color: white;
+  border-color: rgb(30, 50, 50);
+}
+
+
 .dark{
-  background-color: #12121296;
+  background-color: #12121280;
   color: white;
 }
 .dark > a {
   color: white;
 }
+
+
 

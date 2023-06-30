@@ -6,7 +6,9 @@ import Detail from "./Routes/Detail";
 import Contact from "./Routes/Contact";
 import Favs from "./Routes/Favs";
 
+
 import { useContextGlobal } from "./Components/utils/global.context";
+import NotFound from "./Routes/NotFound";
 
 function App() {
 
@@ -20,6 +22,7 @@ function App() {
             <Route path={routes.dentist} element={<Detail/>}/>
             <Route path={routes.contact} element={<Contact/>}/>
             <Route path={routes.favs} element={<Favs/>}/>
+            <Route path={routes.notFound} element={<NotFound/>}/>
           </Route>
         </Routes>
       </div>

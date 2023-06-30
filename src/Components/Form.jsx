@@ -1,24 +1,26 @@
 import React from "react";
+import { useContextGlobal } from "./utils/global.context";
 
 
 const Form = ({datos, setDatos, handleSubmit}) => {
   //Aqui deberan implementar el form completo con sus validaciones
 
+  const {themeState} = useContextGlobal()
 
   return (
-    <div >
-      <form onSubmit={handleSubmit} >
+    <>
+      <form onSubmit={handleSubmit}>
         <label>Ingrese su nombre</label>
-        <input type="text" onChange={(event) => setDatos({...datos, nombre: event.target.value})}/>
+        <input type="text" className={themeState.theme} onChange={(event) => setDatos({...datos, nombre: event.target.value})}/>
         
         <label>Ingrese su mail</label>
-        <input type="email" onChange={(event) => setDatos({...datos, email: event.target.value})}/>
+        <input type="email" className={themeState.theme} onChange={(event) => setDatos({...datos, email: event.target.value})}/>
         
-        <button>Enviar</button>
+        <button className={"form-button " + themeState.theme}>Enviar</button>
 
       </form>
     
-    </div>
+    </>
   );
 };
 
